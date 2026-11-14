@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://cuiq1dm4n1ybm"]
+
+[ext_resource type="Script" uid="uid://dc6xa26j2sbvq" path="res://scripts/level_1.gd" id="1_2y5yt"]
+[ext_resource type="Shader" uid="uid://bnsw5fnvnd3gw" path="res://scenes/tilingShader2.gdshader" id="1_4nkto"]
+[ext_resource type="PackedScene" uid="uid://c8ffypnvhmgjf" path="res://scenes/player.tscn" id="1_014kd"]
+[ext_resource type="Texture2D" uid="uid://f5cg4qdigswn" path="res://assets/savanna_tile.png" id="1_bswci"]
+[ext_resource type="PackedScene" uid="uid://qk6ctkqlyeas" path="res://scenes/zombie.tscn" id="2_2os1m"]
+[ext_resource type="Shader" uid="uid://jik63dfctfap" path="res://scripts/tilingShader.gdshader" id="2_5xbjy"]
+[ext_resource type="Texture2D" uid="uid://dv0jleru5y0o1" path="res://assets/grass_tile.png" id="2_rus8k"]
+[ext_resource type="Texture2D" uid="uid://3so0m2gpireu" path="res://assets/snowy_tile.png" id="5_pa8r4"]
+[ext_resource type="Texture2D" uid="uid://dxhf4s08guugb" path="res://assets/cherry_tile.png" id="6_15mv3"]
+[ext_resource type="Shader" uid="uid://bkefi8raalxd8" path="res://scenes/TilingShader.gdshader" id="6_e3sih"]
+[ext_resource type="PackedScene" uid="uid://cvvpmacvvolir" path="res://scenes/ui.tscn" id="9_e3sih"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ymhcm"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_2374a"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_mtrw7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fcfvj"]
+shader = ExtResource("1_4nkto")
+shader_parameter/tile_count = Vector2(10, 10)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ss1as"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5xbjy"]
+shader = ExtResource("2_5xbjy")
+shader_parameter/tile_count = Vector2(10, 10)
+
+[sub_resource type="QuadMesh" id="QuadMesh_dfpwi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4nkto"]
+shader = ExtResource("2_5xbjy")
+shader_parameter/tile_count = Vector2(10, 10)
+
+[sub_resource type="QuadMesh" id="QuadMesh_0x7qa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pa8r4"]
+shader = ExtResource("6_e3sih")
+shader_parameter/tile_count = Vector2(10, 10)
+
+[sub_resource type="QuadMesh" id="QuadMesh_16ct4"]
+
+[node name="level1" type="Node2D" unique_id=1566253779]
+script = ExtResource("1_2y5yt")
+zombie_scene = ExtResource("2_2os1m")
+
+[node name="grass" type="MeshInstance2D" parent="." unique_id=1632185561]
+modulate = Color(0.08627451, 0.46666667, 0.14509805, 1)
+self_modulate = Color(0.739421, 0.8312513, 0.89342606, 1)
+scale = Vector2(500000, 500000)
+mesh = SubResource("QuadMesh_ymhcm")
+metadata/_edit_lock_ = true
+
+[node name="verticalpath(main)" type="MeshInstance2D" parent="." unique_id=1326463753]
+modulate = Color(0.3529412, 0.24705882, 0.08235294, 0.99607843)
+scale = Vector2(100, 5000000)
+mesh = SubResource("QuadMesh_2374a")
+metadata/_edit_lock_ = true
+
+[node name="horizontalpath(main)" type="MeshInstance2D" parent="." unique_id=1480943297]
+modulate = Color(0.3529412, 0.24705882, 0.08235294, 0.99607843)
+scale = Vector2(5000000, 100)
+mesh = SubResource("QuadMesh_mtrw7")
+metadata/_edit_lock_ = true
+
+[node name="summerPlain(top right)" type="MeshInstance2D" parent="." unique_id=60740728]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_fcfvj")
+position = Vector2(50050, -50050)
+rotation = -3.1415927
+scale = Vector2(-100000, 100000)
+mesh = SubResource("QuadMesh_ss1as")
+texture = ExtResource("1_bswci")
+metadata/_edit_lock_ = true
+
+[node name="winterPlain(bottom right)" type="MeshInstance2D" parent="." unique_id=1742130481]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_5xbjy")
+position = Vector2(50050, 50050)
+scale = Vector2(100000, -100000)
+mesh = SubResource("QuadMesh_dfpwi")
+texture = ExtResource("2_rus8k")
+metadata/_edit_lock_ = true
+
+[node name="springPlain(top left)" type="MeshInstance2D" parent="." unique_id=2034197976]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_4nkto")
+position = Vector2(-50050, -50050)
+scale = Vector2(100000, -100000)
+mesh = SubResource("QuadMesh_0x7qa")
+texture = ExtResource("5_pa8r4")
+metadata/_edit_lock_ = true
+
+[node name="fallPlain(bottom left)" type="MeshInstance2D" parent="." unique_id=1047339048]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_pa8r4")
+position = Vector2(-50050, 50050)
+scale = Vector2(100000, -100000)
+mesh = SubResource("QuadMesh_16ct4")
+texture = ExtResource("6_15mv3")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." unique_id=1188509884 instance=ExtResource("1_014kd")]
+position = Vector2(569.99994, 318.99997)
+
+[node name="UI" parent="." unique_id=986631117 instance=ExtResource("9_e3sih")]

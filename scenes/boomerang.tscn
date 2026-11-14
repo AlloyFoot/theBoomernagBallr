@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://u2f3qfbye56r"]
+
+[ext_resource type="Script" uid="uid://be1c3jjspw7k" path="res://scripts/boomerang.gd" id="1_q1dmq"]
+[ext_resource type="Texture2D" uid="uid://cqvloi5ee8oi3" path="res://assets/boomerang.png" id="1_xwptw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ymhcm"]
+radius = 5.0
+height = 18.0
+
+[node name="Area2D" type="Area2D" unique_id=1110388412]
+scale = Vector2(4, 4)
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_q1dmq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=562484800]
+texture_filter = 1
+texture = ExtResource("1_xwptw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=355708074]
+position = Vector2(0, 3)
+scale = Vector2(1.2, 1.2)
+shape = SubResource("CapsuleShape2D_ymhcm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

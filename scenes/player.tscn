@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://c8ffypnvhmgjf"]
+
+[ext_resource type="Script" uid="uid://dki85myb81h7s" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://d4h4n1ulxy4qd" path="res://assets/3Idle.png" id="2_g2els"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("2_g2els")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("2_g2els")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("2_g2els")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("2_g2els")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("2_g2els")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("2_g2els")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gkh53"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqkch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smehm")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymhcm"]
+size = Vector2(10.4, 14.4)
+
+[node name="Player" type="CharacterBody2D" unique_id=1188509884]
+scale = Vector2(5, 5)
+motion_mode = 1
+script = ExtResource("1_3vyb7")
+
+[node name="playerSprite" type="AnimatedSprite2D" parent="." unique_id=1176201898]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_gkh53")
+frame_progress = 0.94867444
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1575208931]
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_ymhcm")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1246242185]
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0

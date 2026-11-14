@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://qk6ctkqlyeas"]
+
+[ext_resource type="Script" uid="uid://4qq3gy3o4cmj" path="res://scripts/zombie.gd" id="1_1vlb3"]
+[ext_resource type="Texture2D" uid="uid://dbg6hlhis4utu" path="res://assets/ZombieToast.png" id="2_httt1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_httt1"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=30725421 groups=["Zombies"]]
+scale = Vector2(2.5, 2.5)
+collision_layer = 9
+collision_mask = 9
+motion_mode = 1
+script = ExtResource("1_1vlb3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=706804535]
+texture_filter = 1
+position = Vector2(1, -17)
+texture = ExtResource("2_httt1")
+hframes = 25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1381351822]
+shape = SubResource("RectangleShape2D_httt1")
