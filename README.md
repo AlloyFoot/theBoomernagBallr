@@ -9,8 +9,9 @@ survive.
 
 
 
-## [Itch.io Link](https://4lloy.itch.io/boomerang-ballr)
+# [Itch.io Link](https://4lloy.itch.io/boomerang-ballr)
 
+## CREDITS
 
 made by Ved Patel, Arnav Gandhi, and Vivaan Kothari @ Hackclub Haven Princeton
 
